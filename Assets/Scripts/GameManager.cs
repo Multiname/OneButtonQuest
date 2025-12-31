@@ -100,4 +100,35 @@ public class GameManager : MonoBehaviour
     public void LoadNextLevel() {
         SceneManager.LoadScene(nextSceneIndex);
     }
+
+    private KeyCode[] keyCodes = new KeyCode[10]
+    {
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+        KeyCode.Alpha8,
+        KeyCode.Alpha9,
+        KeyCode.Alpha0,
+    };
+
+    private void Update()
+    {
+        for (int i = 0; i < 10; ++i)
+        {
+            if (Input.GetKeyDown(keyCodes[i]))
+            {
+                if (i < 8 && Input.GetKey(KeyCode.LeftControl))
+                {
+                    SceneManager.LoadScene(10 + i);
+                } else
+                {
+                    SceneManager.LoadScene(i);
+                }
+            }
+        }
+    }
 }
