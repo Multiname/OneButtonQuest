@@ -46,9 +46,11 @@ public class SettingsManager : MonoBehaviour
     }
 
     public void SelectSource(SourceButton button) {
-        selectedSource.SetSelected(false);
-        selectedSource = button;
-        selectedSource.SetSelected(true);
-        Actions[selectedReceiver.index, (int)selectedReceiver.TapAction] = button.PlayerAction;
+        if (selectedSource != null) {
+            selectedSource.SetSelected(false);
+            selectedSource = button;
+            selectedSource.SetSelected(true);
+            Actions[selectedReceiver.index, (int)selectedReceiver.TapAction] = button.PlayerAction;
+        }
     }
 }

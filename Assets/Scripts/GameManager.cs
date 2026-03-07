@@ -121,7 +121,7 @@ public class GameManager : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                if (i < 8 && Input.GetKey(KeyCode.LeftControl))
+                if (i < 8 && Input.GetKey(KeyCode.LeftShift))
                 {
                     SceneManager.LoadScene(10 + i);
                 } else
